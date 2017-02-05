@@ -1721,7 +1721,8 @@ mod tests {
     #[test]
     fn from_xml_missing_updated() {
         let feed = Feed::from_xml(&str::parse("<feed xmlns='http://www.w3.org/2005/Atom'><id>http://example.com/feed.atom</id><title>Examplar Feed</title></feed>").unwrap());
-        assert_eq!(feed, Err("<feed> is missing required <updated> element"));
+        assert_eq!(feed.is_ok(), true);
+        assert_eq!(feed.unwrap().updated, "");
     }
 
     #[test]
