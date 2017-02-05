@@ -97,7 +97,7 @@ impl FromXml for Feed {
 
         let updated = match elem.get_child("updated", Some(NS)) {
             Some(elem) => elem.content_str(),
-            None => return Err("<feed> is missing required <updated> element"),
+            None => String::new(),
         };
 
         let icon = elem.get_child("icon", Some(NS)).map(Element::content_str);
