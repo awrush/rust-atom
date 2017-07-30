@@ -87,7 +87,7 @@ impl FromXml for Feed {
     fn from_xml(elem: &Element) -> Result<Self, &'static str> {
         let id = match elem.get_child("id", Some(NS)) {
             Some(elem) => elem.content_str(),
-            None => return Err("<feed> is missing required <id> element"),
+            None => String::new(),
         };
 
         let title = match elem.get_child("title", Some(NS)) {

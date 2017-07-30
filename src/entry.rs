@@ -91,7 +91,7 @@ impl FromXml for Entry {
 
         let updated = match elem.get_child("updated", Some(NS)) {
             Some(elem) => elem.content_str(),
-            None => return Err("<entry> is missing required <updated> element"),
+            None => String::new(),
         };
 
         let source = try!(elem.get_child("source", Some(NS))
